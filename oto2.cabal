@@ -17,4 +17,20 @@ executable oto2
   hs-source-dirs:      src
   main-is:             Main.hs
   default-language:    Haskell2010
-  build-depends:       base >= 4.7 && < 5
+  ghc-options:         -Wall -Werror
+  build-depends:       
+      base >= 4.7 && < 5
+    , hspec
+
+test-suite oto2-test
+  type:               exitcode-stdio-1.0
+  hs-source-dirs:     test
+  main-is:            Spec.hs
+  default-language:   Haskell2010
+  ghc-options:        -Wall -Werror
+  build-tool-depends: hspec-discover:hspec-discover == 2.*
+  other-modules:
+      SimpleSpec
+  build-depends:
+      base >= 4.7 && < 5
+    , hspec == 2.*
